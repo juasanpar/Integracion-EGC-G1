@@ -1,0 +1,31 @@
+version: "2"
+services:
+  mysql_wordpress_servidor:
+    image: 'mariadb:10.1'
+    container_name: mysql_wordpress_servidor
+    environment:
+      #MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes: 
+      - db_data:/var/lib/mysql
+  wordpress_servidor:
+    links:
+      - mysql_wordpress_servidor:mysql
+    image: wordpress
+    container_name: wordpress_servidor
+    
+    environment:
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_HOST: mysql_wordpress_servidor:3306
+      WORDPRESS_DB_NAME: wordpress
+    #working_dir es la ruta de instalacion de WP
+    ports:
+      - "8005:80"
+
+#Volumen para los datos del mysql, para que se guarden fuera del contenedor
+volumes:
+  db_data:
