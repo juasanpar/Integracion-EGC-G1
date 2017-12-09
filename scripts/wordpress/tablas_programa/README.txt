@@ -1,0 +1,1 @@
+Tablas necesarias para el desarrollo de los grupos de Gestión de programa y Visualización de programa.	Este script se debe ejecutar en el esquema splc2017.
