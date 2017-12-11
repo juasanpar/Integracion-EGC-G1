@@ -1,0 +1,13 @@
+version: "2"
+services:
+  g1apachetest:
+    image: 'httpd:2.4'
+    environment:
+      VIRTUAL_HOST: g1apachetest.egc.duckdns.org
+      LETSENCRYPT_HOST: g1apachetest.egc.duckdns.org
+      LETSENCRYPT_EMAIL: migbancar@alum.us.es
+      VIRTUAL_PORT: PUERTO
+    volumes: 
+      - ./htdocs:/usr/local/apache2/htdocs/
+    ports:
+      - "52888:80"
