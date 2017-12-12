@@ -2,6 +2,7 @@ version: "2"
 services:
   g1apachetest:
     image: 'httpd:2.4'
+    container_name: g1apachetest
     environment:
       VIRTUAL_HOST: g1apachetest.egc.duckdns.org
       LETSENCRYPT_HOST: g1apachetest.egc.duckdns.org
