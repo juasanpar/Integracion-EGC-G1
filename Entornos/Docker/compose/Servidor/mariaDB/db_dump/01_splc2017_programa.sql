@@ -1,3 +1,5 @@
+use `splc2017`;
+
 drop table if exists wp_talk;
 drop table if exists wp_talk_group;
 drop table if exists wp_slot;
