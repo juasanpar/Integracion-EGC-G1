@@ -1,5 +1,6 @@
-#UserAccount
+USE `votaciones_splc`;
 
+#UserAccount
 
 INSERT INTO user_account (`id`, `username`, `password`, `email`, `role_id`) VALUES (1, 'marlon86', 'c5a0a2020e94ae28e6d1816ccf4d4860f16cb82d', 'cleveland46@example.com', 1);
 INSERT INTO user_account (`id`, `username`, `password`, `email`, `role_id`) VALUES (2, 'julie70', '622c2a03b0cc8e7491d72787c40f4fa4f51585ee', 'bbode@example.org', 1);
