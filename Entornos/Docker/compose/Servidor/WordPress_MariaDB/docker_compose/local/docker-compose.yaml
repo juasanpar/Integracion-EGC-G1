@@ -6,23 +6,25 @@ services:
     environment:
       #MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_ROOT_PASSWORD: wordpress
-      MYSQL_DATABASE: wordpress
+      MYSQL_DATABASE: splc2017
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
     volumes: 
+      - ./db_dump:/docker-entrypoint-initdb.d
       - db_data:/var/lib/mysql
   wordpress_servidor:
     links:
       - mysql_wordpress_servidor:mysql
     image: wordpress
     container_name: wordpress_servidor
-    
+    working_dir: /var/www/html
+    volumes:
+      - ./wp-content/:/var/www/html/wp-content
     environment:
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_HOST: mysql_wordpress_servidor:3306
-      WORDPRESS_DB_NAME: wordpress
-    #working_dir es la ruta de instalacion de WP
+      WORDPRESS_DB_NAME: splc2017
     ports:
       - "8005:80"
 
